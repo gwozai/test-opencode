@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello, World! · 测试opencode</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #171a21;
+      --text: #e8ebf0;
+      --muted: #8b93a7;
+      --accent: #4f9cf9;
+      --border: #262b36;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% -10%, rgba(79, 156, 249, 0.18), transparent 60%),
+        radial-gradient(700px 400px at 90% 110%, rgba(120, 220, 170, 0.12), transparent 60%),
+        var(--bg);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 640px;
+      padding: 40px 32px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+        var(--card);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 6vw, 44px);
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    p.sub {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .code {
+      margin: 0 0 28px;
+      padding: 18px 20px;
+      text-align: left;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #0b0d11;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+
+    .code .k { color: #c792ea; }
+    .code .f { color: #82aaff; }
+    .code .s { color: #c3e88d; }
+    .code .c { color: #5c6370; }
+
+    button {
+      appearance: none;
+      border: 1px solid rgba(79, 156, 249, 0.5);
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(180deg, #4f9cf9, #2f7ae0);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      box-shadow: 0 8px 24px rgba(47, 122, 224, 0.35);
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: translateY(1px); }
+
+    footer {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Hello, World!</h1>
+    <p class="sub">一个用 GitHub Pages 托管的静态页面</p>
+
+    <pre class="code"><code><span class="c"># hello.py</span>
+<span class="k">def</span> <span class="f">main</span>():
+    <span class="f">print</span>(<span class="s">"Hello, World!"</span>)
+
+<span class="k">if</span> __name__ == <span class="s">"__main__"</span>:
+    <span class="f">main</span>()</code></pre>
+
+    <button id="btn">点我一下</button>
+
+    <footer>
+      源码：<a href="https://github.com/gwozai/test-opencode">github.com/gwozai/test-opencode</a>
+    </footer>
+  </main>
+
+  <script>
+    const btn = document.getElementById("btn");
+    const messages = ["Hello, World!", "你好，世界！", "こんにちは、世界！", "Bonjour le monde !"];
+    let i = 0;
+
+    btn.addEventListener("click", () => {
+      i = (i + 1) % messages.length;
+      btn.textContent = messages[i];
+    });
+  </script>
+</body>
+</html>
